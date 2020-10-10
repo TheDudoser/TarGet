@@ -7,9 +7,9 @@ using namespace std;
 void randomize_coordinate(float* x, float* y){
     srand(time(NULL));
 
-    *x *= rand() % 5;
-    *y *= rand() % 5;
-
+    *x += rand() % 11 - 5;
+    *y += rand() % 11 - 5;
+    //cout << *x << ' ' << *y;
 }
 
 void check_hit(float x, float y, int *sum, int sectors[6])
@@ -22,7 +22,7 @@ void check_hit(float x, float y, int *sum, int sectors[6])
 
     for (int i = 0; i < 6; ++i){
         (((i+1)<6) && ((r < sectors[i]) && (r >= sectors[i+1]))) ? goal = i + 1 : goal = 0;
-        cout << "goal: " << goal << endl;
+        //cout << "goal: " << goal << endl;
         *sum += goal;
     }
     //cout << "sum: " << *sum << endl;
